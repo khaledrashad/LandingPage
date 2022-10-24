@@ -38,6 +38,15 @@
 */
 
 // build the nav
+const ul = document.getElementById("navbar__list");
+const btns = ["section1", "section2", "section3", "section4"];
+btns.forEach(function(el) {
+    let a = document.createElement("a");
+    a.className = "menu__link scrollable-section";
+    a.innerHTML = el;
+    ul.appendChild(a);
+});
+
 
 
 // Add class 'active' to section when near top of viewport
@@ -87,17 +96,3 @@ for (let i = 0; i < sections.length; i++){
         
     });
 };
-
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
