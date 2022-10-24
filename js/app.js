@@ -83,7 +83,8 @@ for (let i = 0; i < sections.length; i++){
     let section = sections[i]
     element.addEventListener("click", (event) => {
         event.preventDefault();
-        section.scrollIntoView();
+        section.scrollIntoView({ behavior: 'smooth' });
+        
     });
 };
 
