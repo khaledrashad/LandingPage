@@ -31,7 +31,6 @@
 */
 
 
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -44,43 +43,51 @@
 // Add class 'active' to section when near top of viewport
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-  }
-    const elements = [{position: document.getElementById('section1').getBoundingClientRect(), name: "section1"},{position: document.getElementById('section2').getBoundingClientRect(), name: "section2"},{position: document.getElementById('section3').getBoundingClientRect(), name: "section3"},{position: document.getElementById('section4').getBoundingClientRect(), name: "section4"}]
-    console.log(elements)
-    window.addEventListener("scroll", (event) => {
-        let scroll = this.scrollY;
-        for (element of elements){
-            if (element.position.y - element.position.height <= scroll && element.position.y >= scroll ){
-                document.getElementById(`${element.name}`).classList.add('your-active-class')
-            }
-            else{document.getElementById(`${element.name}`).classList.remove('your-active-class')}
+}
+const elements = [
+    {
+        position: document.getElementById('section1').getBoundingClientRect(),
+        name: "section1"
+    }, {
+        position: document.getElementById('section2').getBoundingClientRect(),
+        name: "section2"
+    }, {
+        position: document.getElementById('section3').getBoundingClientRect(),
+        name: "section3"
+    }, {
+        position: document.getElementById('section4').getBoundingClientRect(),
+        name: "section4"
+    }
+]
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    for (element of elements) {
+        if (element.position.y - element.position.height<= scroll && element.position.y >= scroll) {
+            document.getElementById(`${
+                element.name
+            }`).classList.add('your-active-class')
+        } else {
+            document.getElementById(`${
+                element.name
+            }`).classList.remove('your-active-class')
         }
-        console.log(event)
-    });
-
+    }
+});
 
 
 // Scroll to anchor ID using scrollTO event
-const btn1 = document.getElementById('btn1')
-btn1.addEventListener("click",(event) => {
-    document.getElementById("section1").scrollIntoView();
-    event.preventDefault();
-})
-const btn2 = document.getElementById('btn2')
-btn2.addEventListener("click",(event) => {
-    document.getElementById("section2").scrollIntoView();
-    event.preventDefault();
-})
-const btn3 = document.getElementById('btn3')
-btn3.addEventListener("click",(event) => {
-    document.getElementById("section3").scrollIntoView();
-    event.preventDefault();
-})
-const btn4 = document.getElementById('btn4')
-btn4.addEventListener("click",(event) => {
-    document.getElementById("section4").scrollIntoView();
-    event.preventDefault();
-})
+const buttons = document.getElementsByClassName("scrollable-section")
+const sections = document.getElementsByClassName("section-scroll")
+for (let i = 0; i < sections.length; i++){
+    let element = buttons[i]
+    let section = sections[i]
+    element.addEventListener("click", (event) => {
+        event.preventDefault();
+        section.scrollIntoView();
+    });
+};
+
+
 
 /**
  * End Main Functions
@@ -88,7 +95,7 @@ btn4.addEventListener("click",(event) => {
  * 
 */
 
-// Build menu 
+// Build menu
 
 // Scroll to section on link click
 
