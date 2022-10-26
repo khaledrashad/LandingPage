@@ -92,7 +92,12 @@ for (let i = 0; i < sections.length; i++){
     let section = sections[i]
     element.addEventListener("click", (event) => {
         event.preventDefault();
+        element.classList.add('active-button')
         section.scrollIntoView({ behavior: 'smooth' });
-        
+        for (let j = 0; j< buttons.length; j++){
+            if (i != j){
+                buttons[j].classList.remove('active-button')
+            }; 
+        };
     });
 };
